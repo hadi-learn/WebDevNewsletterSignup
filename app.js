@@ -5,7 +5,7 @@ const https = require('https');
 
 const app = express();
 const port = 3000;
-const herokuPort = process.env.PORT;
+// const herokuPort = process.env.PORT;
 
 const mailchimpApiKey = `e32a4a2fa43a06aca7152ede58ccb95b-us21`
 const mailchimpListId = `abd11110cc`
@@ -83,6 +83,6 @@ app.post('/failure', (req, res) => {
 })
 
 
-app.listen(port || herokuPort, () => {
+app.listen(process.env.PORT || port, () => {
     console.log(`Server is running on port 3000`);
 })
