@@ -54,8 +54,8 @@ app.post('/', (req, res) => {
         else {
             res.sendFile(__dirname + '/failure.html');
         }
-        // response.on('data', (data) => {
-        //     // console.log(JSON.parse(data));
+        response.on('data', (data) => {
+            console.log(JSON.parse(data));
         //     // var feedback = JSON.parse(data);
         //     // console.log(feedback.errors);
         //     // console.log(feedback.error_count);
@@ -71,7 +71,7 @@ app.post('/', (req, res) => {
         //     else {
         //         res.sendFile(__dirname + '/failure.html');
         //     }
-        // })
+        })
     })
 
     request.write(jsonData);
@@ -79,6 +79,10 @@ app.post('/', (req, res) => {
 })
 
 app.post('/failure', (req, res) => {
+    res.redirect('/');
+})
+
+app.post('/success', (req, res) => {
     res.redirect('/');
 })
 
